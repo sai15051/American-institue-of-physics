@@ -1,0 +1,26 @@
+
+<!-- <div class="my-3">
+    <h5>{{todo.title}}</h5>
+    <p>{{todo.desc}}</p>
+    <button class="btn btn-sm btn-danger" (click)="onClick(todo)">Delete</button>
+</div> -->
+
+<table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr >
+        <td>{{ todo.title }}</td>
+        <td>{{ todo.desc }}</td>
+        <td>
+          <button class="btn btn-danger" (click)="onClick(todo)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+</table>
+  

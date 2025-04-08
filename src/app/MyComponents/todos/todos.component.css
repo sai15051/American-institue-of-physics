@@ -1,0 +1,14 @@
+.table {
+    width: 100%;
+    border-collapse: collapse; /* Collapses borders to ensure no double borders between cells */
+}
+
+.table th, .table td {
+    border: 1px solid #ddd; /* Light gray border for visibility */
+    padding: 8px;
+    text-align: left;
+}
+
+.table td:not(:last-child) {
+    border-right: 1px solid #ddd; /* Vertical line between columns */
+}

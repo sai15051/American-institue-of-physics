@@ -1,0 +1,26 @@
+<app-add-todo (todoAdd)="addTodo($event)"></app-add-todo>
+<h4>Your Todos</h4>
+<div *ngIf="this.todos.length===0; else elseBlock">No Todos!!</div>
+<ng-template #elseBlock>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let todo of todos">
+        <td>{{ todo.title }}</td>
+        <td>{{ todo.desc }}</td>
+        <td>
+          <button class="btn btn-danger" (click)="onClick(todo)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+</table>
+  <!-- <div *ngFor="let todo of todos">
+    <app-todo-item [todo]="todo" (todoDelete)="deleteTodo($event)"></app-todo-item>
+  </div> -->
+</ng-template>

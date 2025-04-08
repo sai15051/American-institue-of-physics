@@ -1,0 +1,98 @@
+
+
+*, :after, :before {
+    box-sizing: border-box;
+}
+
+
+.question-details {
+    background: #fff;
+    border: 2px solid #e2e2e2;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+
+fieldset {
+    border: 2px solid #e2e2e2; 
+    padding: 32px;           
+    position: relative;       
+    margin: 20px;    
+    border-radius: 10px;  
+}
+
+
+legend {
+    
+    font-size: 17px;  
+           
+    background-color: white; 
+    position: absolute;      
+    top: -15px;             
+    left: 10px;             
+    color: black;          
+    width: auto;            
+}
+
+
+
+@media (max-width: 768px) {
+    legend {
+        font-size: calc(1.275rem + 0.3vw); 
+    }
+}
+
+
+.instrument-name, .contributor-info, .Facility-info {
+    width: 100%; 
+    max-width: 500px; 
+    margin: auto; 
+}
+
+
+@media (max-width: 576px) {
+    .instrument-name, .contributor-info, .Facility-info {
+        margin: auto;
+    }
+}
+
+
+.info-icon {
+    margin-left: 6px; 
+}
+
+.custom-info-icon {
+    font-size: 14px; 
+    color: #12055c;
+}
+
+.custom-info-icon:hover {
+    color: #2b0404; 
+}
+
+.row {
+    justify-content: center; 
+}
+
+
+.custom-info-icon {
+    color: #073c75; 
+    margin-left: 2px; 
+}
+
+
+@media (max-width: 768px) {
+    .custom-info-icon {
+        font-size: 1rem; 
+    }
+}
+.example-spacer {
+    flex-grow: 1;
+}
+.instrument-navigation{
+    display: flex;
+}
+.mat-mdc-raised-button:not(:disabled) {
+    color: var(--mdc-protected-button-label-text-color, inherit);
+    margin: 10px;
+}

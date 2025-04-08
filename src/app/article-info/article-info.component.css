@@ -1,0 +1,19 @@
+.form{
+    margin-left: 34%;
+    margin-right: 34%;
+}
+.col{
+    display: flex;
+}
+.example-spacer {
+    flex-grow: 1;
+}
+.instrument-navigation{
+    display: flex;
+}
+.p{
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+.h1{
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}

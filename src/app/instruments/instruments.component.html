@@ -1,0 +1,145 @@
+<div class="container-fluid">
+    <h1>Instruments</h1>
+    <p>The instrument listed below was identified in the article text. You can change the instrument name or delete the entry if necessary.
+
+        In the contributor box, select the researcher(s) who oversaw the use of that instrument in the research.
+        
+        If possible, please also provide the name of the facility or lab where that instrument was used. If the facility's funding source is known, please provide that as well..</p>
+    
+    <div class="question-details">
+        <form [formGroup]="instrumentForm" (ngSubmit)="onSubmit()" >
+            <div class="row mb-3">
+                <div class="col-12 text-md-center text-start">
+                    <div *ngIf="showCorrectionInfo" class="alert alert-warning d-flex justify-content-between align-items-center">
+                        <span>Please enter the correct info:</span>
+                        <button type="button" class="close" (click)="closeCorrectionInfo()">&times;</button>
+                    </div>
+                    <label class="m-b-10">Is the information below correct?</label>
+                    <div class="d-flex justify-content-start justify-content-md-center">
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="instrumentCorrect" id="instrumentCorrectCorrect" class="form-check-input "  (change)="onRadioChange('Yes')">
+                            <label for="instrumentCorrectCorrect" class="form-check-label">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="instrumentCorrect" id="instrumentCorrectIncorrect" class="form-check-input"   (change)="onRadioChange('No')">
+                            <label for="instrumentCorrectIncorrect" class="form-check-label">No</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="instrumentCorrect" id="instrumentCorrectDelete" class="form-check-input"  (change)="onRadioChange('Delete')">
+                            <label for="instrumentCorrectDelete" class="form-check-label">Delete</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="instrument-name mb-3">
+                <div class="row g-3 align-items-center">
+                    <div class="col-auto">
+                        <label class="col-form-label">Instrument name:</label>
+                    </div>
+                    <div class="col">
+                        <div class="d-flex align-items-center">
+                            <mat-form-field appearance="outline" class="w-100" >
+                                <mat-label>Instrument name</mat-label>
+                                <input matInput placeholder="Please enter instrument name" formControlName="instrumentName">
+                                <mat-error *ngIf="instrumentForm?.get('instrumentName')?.hasError('required')">
+                                    Instrument name is required
+                                  </mat-error>
+                                  <mat-error *ngIf="instrumentForm?.get('instrumentName')?.hasError('minlength')">
+                                    Instrument name must be more than 3 characters
+                                </mat-error>
+                            </mat-form-field>
+                            <span matTooltip="This instrument was identified in the article. Please correct or delete the instrument if the information is incorrect." matTooltipPosition="right" class="info-icon">
+                                <i class="fa fa-info-circle custom-info-icon" style="cursor: pointer;"></i>
+                            </span>
+                        </div>
+                        
+                    </div>            
+                </div>
+            </div>
+
+            <hr style="border: 1px solid #6c757d; margin-left: -15px; margin-right: -15px;">
+
+            <div class="contributor-info mb-3">
+                <div class="row g-3 align-items-center">
+                    <div class="col-auto">
+                        <label class="col-form-label">Contributor name:</label>
+                    </div>
+                    <div class="col">
+                        <div class="d-flex align-items-center">
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>Contributor name</mat-label>
+                                <mat-select [formControl]="toppings" multiple>
+                                    <mat-option *ngFor="let topping of toppingList" [value]="topping">{{ topping }}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <span matTooltip="Please select the co-author(s) who oversaw the use of that instrument. If the use of that instrument was conducted by someone not in the author team – please select “other contributor" matTooltipPosition="right" class="info-icon">
+                                <i class="fa fa-info-circle custom-info-icon" style="cursor: pointer;"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row Facility-info mb-3">
+                <fieldset>
+                    <legend>Facility info:</legend>
+                    <div class="row g-3 align-items-center">
+                        <div class="col-auto">
+                            <label class="col-form-label">Facility name:</label>
+                        </div>
+                        <div class="col">
+                            <div class="d-flex align-items-center">
+                                <mat-form-field appearance="outline" class="w-100">
+                                    <mat-label>Facility name</mat-label>
+                                    <input matInput placeholder="Please enter Facility name" formControlName="facilityName">
+                                    <mat-error *ngIf="instrumentForm?.get('facilityName')?.hasError('required')">
+                                        facilityName name is required
+                                    </mat-error>
+                                    <mat-error *ngIf="instrumentForm?.get('facilityName')?.hasError('minlength')">
+                                        facilityName name must be more than 3 characters
+                                    </mat-error>
+                                </mat-form-field>
+                                <span matTooltip="Please provide the full name of the facility where the instrument was used." matTooltipPosition="right" class="info-icon">
+                                    <i class="fa fa-info-circle custom-info-icon" style="cursor: pointer;"></i>
+                                </span>
+                            </div>
+                        </div>            
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-auto">
+                            <label class="col-form-label">Facility Funding:</label>
+                        </div>
+                        <div class="col">
+                            <div class="d-flex align-items-center">
+                                <mat-form-field appearance="outline" class="w-100">
+                                    <mat-label>Facility Funding</mat-label>
+                                    <input matInput placeholder="Please enter facility funding" formControlName="facilityFunding">
+                                    <mat-error *ngIf="instrumentForm?.get('facilityFunding')?.hasError('required')">
+                                        facilityFunding name is required
+                                    </mat-error>
+                                    <mat-error *ngIf="instrumentForm?.get('facilityFunding')?.hasError('minlength')">
+                                        facilityFunding name must be more than 3 characters
+                                    </mat-error>
+                                </mat-form-field>
+                                <span matTooltip="If you know the funding source of the instrument or facility, please provide that information. Connecting facility funding to articles will help us show the impact of the facility’s funding." matTooltipPosition="right" class="info-icon">
+                                    <i class="fa fa-info-circle custom-info-icon" style="cursor: pointer;"></i>
+                                </span>
+                            </div>
+                        </div>            
+                    </div>
+                </fieldset>
+            </div>
+        
+            
+            <div class="instrument-navigation">
+                
+                <span class="example-spacer"></span>
+                <button mat-raised-button color="primary"type="button" (click)="navigatePrevious()">Back</button>
+                <button mat-raised-button color="primary" type="submit">Next</button>
+            </div>
+              
+        </form>
+    </div>
+    
+</div>

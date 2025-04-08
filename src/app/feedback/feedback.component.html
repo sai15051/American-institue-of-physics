@@ -1,0 +1,22 @@
+<div class="container-fluid">
+    <p>
+        Thank you for completing the form. We value your input to this process and welcome any feedback or suggestions. We are actively working on this project and want to make sure that it benefits researchers, research facilities, and facility funders.
+    </p>
+    <p>Rate your experience.</p>
+    <div class="star-rating">
+        <i class="fa fa-star" [ngClass]="{'gold': starStatus[0]}" (click)="toggleStar(0)"></i>
+        <i class="fa fa-star" [ngClass]="{'gold': starStatus[1]}" (click)="toggleStar(1)"></i>
+        <i class="fa fa-star" [ngClass]="{'gold': starStatus[2]}" (click)="toggleStar(2)"></i>
+        <i class="fa fa-star" [ngClass]="{'gold': starStatus[3]}" (click)="toggleStar(3)"></i>
+        <i class="fa fa-star" [ngClass]="{'gold': starStatus[4]}" (click)="toggleStar(4)"></i>
+    </div>
+    <p>Please enter feedback</p>
+    <div class="col-xs-10 col-sm-8 d-flex">
+        <textarea rows="5" matinput cdkTextareaAutosize cdkAutosizeMinRows="5" cdkAutosizeMaxRows="15" class="survey-textbox"></textarea>
+    </div>
+    <p>You can reach us at <a href="mailto:labconnect@aip.org">labconnect@aip.org</a></p>
+    <div class="col-xs-12 col-sm-8 m-t-20 text-end" style="margin-bottom: 50px;">
+        <button mat-button mat-raised-button class="me-2 ms-0" style="background-color: #fff;">Back</button>
+        <button mat-button mat-raised-button color="primary" class="submit-button me-2 ms-2" style="background-color: #1f099c;">Submit</button>
+    </div>
+</div>

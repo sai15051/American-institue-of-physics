@@ -1,0 +1,12 @@
+.p{
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+.star-rating .fa-star {
+    font-size: 30px;
+    color: grey;
+    cursor: pointer;
+}
+
+.star-rating .fa-star.gold {
+    color: gold;
+}

@@ -1,0 +1,86 @@
+<div class="container-fluid">
+    <h1>Welcome</h1>
+    <p>Thank you for helping AIP Publishing connect your article's research to the facilities your team used. By providing information to those research facilities and funders, we can help increase the impact of those facilities and encourage more investment in them.</p>
+
+    <hr style="border: 1px solid #6c757d; margin-left: -15px; margin-right: -15px;">
+    <h4>Article Bibliography</h4>
+    <div class="flex-d"><strong>Title:</strong> A 3D numerical analysis on magnetic field enhanced microwave linear plasma</div>
+    <div class="flex-d"><strong>Date of Publication:</strong> 10th January 2020</div>
+    <div class="flex-d"><strong>DOI:</strong> 10.1063/1.5127555</div>
+    <div class="flex-d"><strong>Primary Author:</strong> Longwei Chen</div>
+    <div class="flex-d"><strong>Co-Authors:</strong> Wenjin Zhang; Yiman Jiang; Chengzhou Liu; Ying Zhao; Jiafang Shan; Fukun Liu</div>
+
+    <hr style="border: 1px solid #6c757d; margin-left: -15px; margin-right: -15px;">
+
+    <div class="row mb-3">
+        <div class="col-xs-12 col-md-4 text-right">
+            <span>Are you <strong>Longwei Chen</strong> at <strong>lwchen@ipp.ac.cn</strong>?</span>
+        </div>
+        <div class="col-xs-12 col-md-8">
+            <div class="form-check form-check-inline">
+                <input type="radio" name="isArticleInfoCorrect" id="isArticleInfoCorrectYes" [(ngModel)]="isArticleInfoCorrect" [value]="true" (change)="toggleFields()" class="form-check-input">
+                <label for="isArticleInfoCorrectYes" class="form-check-label">Yes</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input type="radio" name="isArticleInfoCorrect" id="isArticleInfoCorrectNo" [(ngModel)]="isArticleInfoCorrect" [value]="false" (change)="toggleFields()" class="form-check-input">
+                <label for="isArticleInfoCorrectNo" class="form-check-label">No</label>
+            </div>
+        </div>
+    </div>
+
+    
+    <div *ngIf="isArticleInfoCorrect === false" class="form">
+        
+        <div class="row g-3 align-items-center">
+            <!-- <div class="col-auto">
+                <label class="col-form-label">Name:</label>
+            </div> -->
+            <div class="col">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Name</mat-label>
+                    <input matInput placeholder="Please enter your name" [(ngModel)]="name">
+                </mat-form-field>
+                <span matTooltip="This instrument was identified in the article. Please correct or delete the instrument if the information is incorrect." matTooltipPosition="right" class="info-icon">
+                    <i class="fa fa-info-circle custom-info-icon" style="cursor: pointer;margin-left: 3px;"></i>
+                </span>
+            </div>
+        </div>
+        <div class="row g-3 align-items-center">
+            <!-- <div class="col-auto">
+                <label class="col-form-label">Email:</label>
+            </div> -->
+            <div class="col">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="Please enter your email" [(ngModel)]="email">
+                </mat-form-field>
+                <span matTooltip="This instrument was identified in the article. Please correct or delete the instrument if the information is incorrect." matTooltipPosition="right" class="info-icon">
+                    <i class="fa fa-info-circle custom-info-icon" style="cursor: pointer;margin-left: 3px;"></i>
+                </span>
+            </div>
+        </div>
+        <div *ngIf="isArticleInfoCorrect === false" class="form-check">
+            <input type="checkbox" class="form-check-input" id="terms">
+            <label class="form-check-label" for="terms">
+                I have read and accept the 
+                <a href="https://ww2.aip.org/aip/privacy-policy" target="_blank">
+                    AIP Publishing Terms and Conditions of Use and Privacy Policy
+                </a>
+            </label>
+        </div>
+        
+        <!-- <div  *ngIf="isArticleInfoCorrect === false" class="form-check">
+            <input type="checkbox" class="form-check-input" id="recaptcha">
+            <label class="form-check-label" for="recaptcha">I'm not a robot</label>
+        </div> -->
+    </div>
+
+    
+
+    <div class="instrument-navigation">
+        <!-- <button mat-raised-button color="primary" type="submit">{{ showCorrectionInfo ? 'Update' : 'Submit' }}</button> -->
+        <span class="example-spacer"></span>
+        <!-- <button mat-raised-button color="primary"type="button" (click)="navigatePrevious()">Back</button> -->
+        <button mat-raised-button color="primary" type="submit">Next</button>
+    </div>
+</div>

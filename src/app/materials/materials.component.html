@@ -1,0 +1,100 @@
+<div class="container-fluid">
+    <h1>Materials</h1>
+    <p>The material listed below was identified in the article text. You can change the material name or delete the entry if necessary.
+
+        If the source of the material is known, please add that detail below.</p>
+    
+    <div class="question-details">
+        <form [formGroup]="materialForm" (ngSubmit)="onSubmit()" >
+            <div class="row mb-3">
+                <div class="col-12 text-md-center text-start">
+                    <div *ngIf="showCorrectionInfo" class="alert alert-warning d-flex justify-content-between align-items-center">
+                        <span>Please enter the correct info:</span>
+                        <button type="button" class="close" (click)="closeCorrectionInfo()">&times;</button>
+                    </div>
+                    <label class="m-b-10">Is the information below correct?</label>
+                    <div class="d-flex justify-content-start justify-content-md-center">
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="instrumentCorrect" id="instrumentCorrectCorrect" class="form-check-input "  (change)="onRadioChange('Yes')">
+                            <label for="instrumentCorrectCorrect" class="form-check-label">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="instrumentCorrect" id="instrumentCorrectIncorrect" class="form-check-input"   (change)="onRadioChange('No')">
+                            <label for="instrumentCorrectIncorrect" class="form-check-label">No</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="instrumentCorrect" id="instrumentCorrectDelete" class="form-check-input"  (change)="onRadioChange('Delete')">
+                            <label for="instrumentCorrectDelete" class="form-check-label">Delete</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="instrument-name mb-3">
+                <div class="row g-3 align-items-center">
+                    <div class="col-auto">
+                        <label class="col-form-label">Material name:</label>
+                    </div>
+                    <div class="col">
+                        <div class="d-flex align-items-center">
+                            <mat-form-field appearance="outline" class="w-100" >
+                                <mat-label>Material name</mat-label>
+                                <input matInput placeholder="Please enter Material name" formControlName="materialName">
+                                <mat-error *ngIf="materialForm?.get('materialName')?.hasError('required')">
+                                    Material name is required
+                                  </mat-error>
+                                  <mat-error *ngIf="materialForm?.get('materialName')?.hasError('minlength')">
+                                    Material name must be more than 3 characters
+                                </mat-error>
+                            </mat-form-field>
+                            <span matTooltip="This instrument was identified in the article. Please correct or delete the instrument if the information is incorrect." matTooltipPosition="right" class="info-icon">
+                                <i class="fa fa-info-circle custom-info-icon" style="cursor: pointer;"></i>
+                            </span>
+                        </div>
+                        
+                    </div>            
+                </div>
+            </div>
+            <div class="instrument-name mb-3">
+                <div class="row g-3 align-items-center">
+                    <div class="col-auto">
+                        <label class="col-form-label">Material source:</label>
+                    </div>
+                    <div class="col">
+                        <div class="d-flex align-items-center">
+                            <mat-form-field appearance="outline" class="w-100" >
+                                <mat-label>material source</mat-label>
+                                <input matInput placeholder="Please enter material name" formControlName="materialsource">
+                                <mat-error *ngIf="materialForm?.get('materialtsource')?.hasError('required')">
+                                    Material source is required
+                                  </mat-error>
+                                  <mat-error *ngIf="materialForm?.get('materialtsource')?.hasError('minlength')">
+                                    Material source must be more than 3 characters
+                                </mat-error>
+                            </mat-form-field>
+                            <span matTooltip="This instrument was identified in the article. Please correct or delete the instrument if the information is incorrect." matTooltipPosition="right" class="info-icon">
+                                <i class="fa fa-info-circle custom-info-icon" style="cursor: pointer;"></i>
+                            </span>
+                        </div>
+                        
+                    </div>            
+                </div>
+            </div>
+
+            <!-- <hr style="border: 1px solid #6c757d; margin-left: -15px; margin-right: -15px;"> -->
+
+           
+
+          
+            
+            <div class="instrument-navigation">
+                <!-- <button mat-raised-button color="primary" type="submit">{{ showCorrectionInfo ? 'Update' : 'Submit' }}</button> -->
+                <span class="example-spacer"></span>
+                <button mat-raised-button color="primary"type="button" (click)="navigatePrevious()">Back</button>
+                <button mat-raised-button color="primary" type="submit">Next</button>
+            </div>
+              
+        </form>
+    </div>
+    
+</div>
